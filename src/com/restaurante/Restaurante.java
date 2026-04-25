@@ -19,12 +19,17 @@ public class Restaurante {
 
     public void crearReserva(Reserva reserva) {
         reservas.add(reserva);
+        reserva.confirmarReserva();
     }
 
     public void mostrarReservas() {
-        for (Reserva r : reservas) {
-            r.mostrarReserva();
-            System.out.println("-------------------");
+        if (reservas.isEmpty()) {
+            System.out.println("No hay reservas registradas.");
+        } else {
+            for (Reserva r : reservas) {
+                r.mostrarReserva();
+                System.out.println("----------------------");
+            }
         }
     }
 

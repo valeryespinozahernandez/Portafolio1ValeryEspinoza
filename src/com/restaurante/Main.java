@@ -22,7 +22,7 @@ public class Main {
             System.out.println("3. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
-            sc.nextLine(); // limpiar buffer
+            sc.nextLine();
 
             switch (opcion) {
 
@@ -35,7 +35,7 @@ public class Main {
 
                     Cliente cliente = new Cliente(nombre, telefono);
 
-                    System.out.print("Fecha (ej: 20/03/2026): ");
+                    System.out.print("Fecha (ej: 20/04/2026): ");
                     String fecha = sc.nextLine();
 
                     System.out.print("Número de mesa: ");
@@ -43,6 +43,7 @@ public class Main {
                     sc.nextLine();
 
                     Mesa mesaSeleccionada = null;
+
                     for (Mesa m : restaurante.getMesas()) {
                         if (m.getNumero() == numMesa) {
                             mesaSeleccionada = m;
@@ -53,9 +54,9 @@ public class Main {
                     if (mesaSeleccionada != null) {
                         Reserva reserva = new Reserva(fecha, cliente, mesaSeleccionada);
                         restaurante.crearReserva(reserva);
-                        System.out.println("✅ Reserva creada con éxito");
+                        System.out.println("Reserva creada con éxito.");
                     } else {
-                        System.out.println("❌ Mesa no encontrada");
+                        System.out.println("Mesa no encontrada.");
                     }
                     break;
 
@@ -68,7 +69,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("❌ Opción inválida");
+                    System.out.println("Opción inválida.");
             }
 
         } while (opcion != 3);
